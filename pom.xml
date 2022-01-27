@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mybatis-plus-sample-quickstart</module>
+        <module>mybatis-plus-sample-generator</module>
     </modules>
 
     <parent>
