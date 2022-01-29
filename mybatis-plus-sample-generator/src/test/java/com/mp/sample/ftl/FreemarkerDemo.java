@@ -16,11 +16,13 @@ import java.util.Map;
  * @Auther d
  * @Date 2022/1/29 1:41
  * @Describe 测试Freemarker
+ *           数据模型: {@code root}
+ *
  **/
 public class FreemarkerDemo {
     public static void main(String[] args) throws IOException, TemplateException {
         final Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-        cfg.setDirectoryForTemplateLoading(new File("D:\\AAAA\\bbb\\templates"));
+        cfg.setDirectoryForTemplateLoading(new File("D:\\AAAA\\ccccc\\AllFile\\templates"));
         cfg.setDefaultEncoding("UTF-8");
         //设置错误的如何表现
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);//
@@ -35,6 +37,8 @@ public class FreemarkerDemo {
         latest.setUrl("products/greenmouse.html");
         latest.setName("green mouse");
         root.put("latestProduct", latest);
+        //添加数据
+        root.put("indexOfOf", new IndexOfMethod());
 
         //模板
         Template temp = cfg.getTemplate("test.ftlh");
