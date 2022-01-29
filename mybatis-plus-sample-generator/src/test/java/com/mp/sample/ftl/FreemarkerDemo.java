@@ -1,6 +1,7 @@
 package com.mp.sample.ftl;
 
 import com.mp.sample.ftl.directive.UpperDirective;
+import com.mp.sample.ftl.directive.repeat.RepeatDirective;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -42,6 +43,7 @@ public class FreemarkerDemo {
         root.put("indexOfOf", new IndexOfMethod());
         //添加指令
         root.put("upper", new UpperDirective());
+        root.put("repeat",new RepeatDirective());
         //模板
         Template temp = cfg.getTemplate("test.ftlh");
         Writer out = new OutputStreamWriter(System.out);
