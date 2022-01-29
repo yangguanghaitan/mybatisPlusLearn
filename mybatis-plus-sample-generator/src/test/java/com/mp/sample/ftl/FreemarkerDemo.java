@@ -2,6 +2,8 @@ package com.mp.sample.ftl;
 
 import com.mp.sample.ftl.directive.UpperDirective;
 import com.mp.sample.ftl.directive.repeat.RepeatDirective;
+import com.mp.sample.ftl.method.IndexOfMethod;
+import com.mp.sample.ftl.method.Product;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;

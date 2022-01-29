@@ -1,4 +1,4 @@
-package com.mp.sample.ftl;
+package com.mp.sample.ftl.method;
 
 import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateMethodModel;
