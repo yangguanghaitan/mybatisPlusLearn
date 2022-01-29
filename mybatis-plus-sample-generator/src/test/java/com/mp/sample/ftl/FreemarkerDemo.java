@@ -1,5 +1,6 @@
 package com.mp.sample.ftl;
 
+import com.mp.sample.ftl.directive.UpperDirective;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -22,7 +23,7 @@ import java.util.Map;
 public class FreemarkerDemo {
     public static void main(String[] args) throws IOException, TemplateException {
         final Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-        cfg.setDirectoryForTemplateLoading(new File("D:\\AAAA\\ccccc\\AllFile\\templates"));
+        cfg.setDirectoryForTemplateLoading(new File("D:/workspace/quickBuilder/mybatisPlusLearn/mybatis-plus-sample-generator/src/test/resources/templates"));
         cfg.setDefaultEncoding("UTF-8");
         //设置错误的如何表现
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);//
@@ -39,7 +40,8 @@ public class FreemarkerDemo {
         root.put("latestProduct", latest);
         //添加数据
         root.put("indexOfOf", new IndexOfMethod());
-
+        //添加指令
+        root.put("upper", new UpperDirective());
         //模板
         Template temp = cfg.getTemplate("test.ftlh");
         Writer out = new OutputStreamWriter(System.out);
