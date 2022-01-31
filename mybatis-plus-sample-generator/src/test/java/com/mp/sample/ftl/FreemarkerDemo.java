@@ -13,7 +13,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -26,13 +28,14 @@ import java.util.Map;
 public class FreemarkerDemo {
     public static void main(String[] args) throws IOException, TemplateException {
         final Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-        cfg.setDirectoryForTemplateLoading(new File("D:/workspace/quickBuilder/mybatisPlusLearn/mybatis-plus-sample-generator/src/test/resources/templates"));
+//      cfg.setDirectoryForTemplateLoading(new File("D:/workspace/quickBuilder/mybatisPlusLearn/mybatis-plus-sample-generator/src/test/resources/templates"));
         cfg.setDefaultEncoding("UTF-8");
         //设置错误的如何表现
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);//
         cfg.setLogTemplateExceptions(false);
         cfg.setWrapUncheckedExceptions(true);
         cfg.setFallbackOnNullLoopVariable(false);
+        cfg.setTemplateLoader(new MyTemplateLoader(new URL("https://gist.githubusercontent.com/yangguanghaitan/a886221bfab4b54434d9d294af9e950a/raw/d68d4c3c1471046e26aefa89239faf4d64771628/test_zh_CN.ftlh")));
 
         //数据模型
         Map<String, Object> root = new HashMap<>();
