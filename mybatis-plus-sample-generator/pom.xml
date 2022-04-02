@@ -12,6 +12,11 @@
     <artifactId>mybatis-plus-sample-generator</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.1</version>
+        </dependency>
 <!-- 核心包-->
         <dependency>
             <groupId>com.baomidou</groupId>

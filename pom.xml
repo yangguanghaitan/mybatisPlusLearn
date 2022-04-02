@@ -19,12 +19,6 @@
         <version>2.6.3</version>
     </parent>
     <dependencies>
-<!--        MP-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
-        </dependency>
 <!--        lombok插件-->
         <dependency>
             <groupId>org.projectlombok</groupId>
