@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.dao.ProvinceDao">
+    <resultMap type="Province" id="provinceMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="provinceId" column="province_id" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="wm" column="wm" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="selectProvince">
+        select id, province_id, province,wm from sys_province
+    </sql>
+    <!--查询单个-->
+    <select id="queryById" resultMap="provinceMap">
+        <include refid="selectProvince"/>
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="provinceMap">
+        <include refid="selectProvince"/>
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="provinceMap">
+        <include refid="selectProvince"/>
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="province_id != null and province_id != ''">
+                and province_id = #{provinceId}
+            </if>
+            <if test="province != null">
+                and province = #{province}
+            </if>
+            <if test="wm != null">
+                and wm = #{wm}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into sys_province(province_id, province,wm)
+        values (#{provinceId}, #{province},#{wm})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update sys_province
+        <set>
+            <if test="provinceId != null and provinceId != ''">
+                province_id = #{provinceId},
+            </if>
+            <if test="province != null">
+                province = #{province},
+            </if>
+            <if test="wm != null">
+                wm = #{wm},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from sys_province where id = #{id}
+    </delete>
+
+</mapper>
+

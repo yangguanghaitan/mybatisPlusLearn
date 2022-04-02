@@ -2,3 +2,10 @@
 filepath:
   #文件路径 示例（ Windows配置D:/logistics/uploadPath，Linux配置 /home/logistics/uploadPath）
   profile: D:/filePath/uploadPath
+#  数据源配置
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/juidedb?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
