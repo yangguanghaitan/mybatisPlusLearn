@@ -11,6 +11,7 @@
     <modules>
         <module>mybatis-plus-sample-quickstart</module>
         <module>mybatis-plus-sample-generator</module>
+        <module>mybatis-example</module>
     </modules>
 
     <parent>

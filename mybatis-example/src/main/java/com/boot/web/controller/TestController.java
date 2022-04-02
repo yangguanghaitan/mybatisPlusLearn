@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Auther d
@@ -21,9 +22,11 @@ public class TestController extends BaseController {
     String filePath;
 
     @GetMapping("/profile")
-    public void testProfile(HttpServletRequest request) {
-        String ContentType = request.getHeader("Content-Type");
+    public void testProfile(HttpServletRequest request, HttpServletResponse response) {
+        String requestContentType = request.getHeader("Accept");
+        String responseContentType = response.getHeader("Content-Type");
         logger.info("filePath,{}",filePath);
-        logger.info("ContentType,{}",ContentType);
+        logger.info("requestContentType,{}",requestContentType);
+        logger.info("responseContentType,{}",responseContentType);
     }
 }
